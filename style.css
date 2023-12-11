@@ -1,5 +1,143 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;300;400;500;600;700&display=swap");
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --cyan: hsl(185, 75%, 39%);
+  --dark-saturated-blue: hsl(229, 23%, 23%);
+  --dark-grayish-blue: hsl(227, 10%, 46%);
+  --dark-gray: hsl(0, 0%, 59%);
+}
+
 body {
   font-family: "Kumbh Sans", sans-serif;
+  display: grid;
+  place-content: center;
+  min-height: 100svh;
+  line-height: 1.5;
+  background-color: var(--cyan);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  background-image: url(images/bg-pattern-top.svg);
+  background-repeat: no-repeat;
+  inset: 0;
+  background-size: contain;
+  transform: translateX(-50%) translateY(-25%);
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  background-image: url(images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat;
+  inset: 0;
+  background-size: cover;
+  transform: translate(50%, 50%);
+  z-index: -1;
+}
+
+.main {
+  margin: 0 auto;
+  width: clamp(32.5rem, 31.268rem + 3.286vw, 36rem);
+  border-radius: 1rem;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
+  align-items: center;
+  margin-block-end: 2rem;
+}
+
+.img-wrapper {
+  width: 100%;
+  position: relative;
+  margin-block-end: 6rem;
+}
+
+.card-bg {
+  width: 100%;
+  height: auto;
+}
+
+.user-img {
+  border-radius: 50%;
+  border: 5px solid white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.user-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.user-age {
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin-inline-start: 0.5rem;
+}
+
+.user-location {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 2rem;
+  padding: 2rem 4rem;
+  border-top: 1px solid #aaaaaa6b;
+}
+
+.stat-wrapper {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+}
+
+.stat-type {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+@media screen and (min-width: 1440px) {
+  body::before {
+    background-size: contain;
+    transform: translateX(0) translateY(-50%);
+  }
+
+  body::after {
+    background-size: auto;
+    transform: translate(50%, 50%);
+    z-index: -1;
+  }
 }
